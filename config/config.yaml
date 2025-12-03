@@ -1,0 +1,152 @@
+# RealtyVest AI Configuration
+
+# Geographic Scope
+geography:
+  metro: "DFW"
+  bounds:
+    lat_min: 32.5
+    lat_max: 33.2
+    lon_min: -97.5
+    lon_max: -96.8
+  zip_codes_file: "config/dfw_zips.yaml"
+
+# Data Sources
+data_sources:
+  redfin:
+    base_url: "https://www.redfin.com"
+    rate_limit_seconds: 2  # Polite scraping
+    timeout_seconds: 10
+    max_retries: 3
+    
+  fred:
+    api_key: "${FRED_API_KEY}"  # From .env
+    series:
+      employment: "DALLSBORUR"  # Dallas unemployment rate
+      population: "TXDALL5POP"  # Dallas-Plano-Irving population
+      mortgage_rate: "MORTGAGE30US"
+      permits: "DALLTEXCONS"  # Dallas construction permits
+
+# Property Filters
+property_filters:
+  unit_types: [1, 2, 3, 4]  # Residential 1-4 units
+  min_price: 50000
+  max_price: 5000000
+  min_sqft: 400
+  max_sqft: 10000
+  min_beds: 1
+  max_beds: 10
+
+# Feature Engineering
+features:
+  # Base property features
+  base:
+    - beds
+    - baths
+    - sqft
+    - year_built
+    - lot_size
+    - stories
+  
+  # Derived features
+  derived:
+    - age  # current_year - year_built
+    - price_per_sqft
+    - bed_bath_ratio
+    - is_new_construction  # age < 2
+  
+  # Temporal features
+  temporal:
+    - month
+    - quarter
+    - is_spring_market  # Mar-Jun
+    - is_holiday_season  # Nov-Dec
+  
+  # Categorical encodings
+  categorical:
+    - zip_code
+    - property_type
+    - heating_type
+    - cooling_type
+
+# Model Configuration
+model:
+  # Walk-forward validation
+  validation:
+    start_date: "2023-10-01"  # Begin predictions
+    prediction_frequency: "MS"  # Monthly start
+    min_training_samples: 500
+    expanding_window: true  # Use all past data
+  
+  # LightGBM hyperparameters (baseline)
+  lgbm:
+    n_estimators: 2000
+    learning_rate: 0.05
+    num_leaves: 64
+    max_depth: -1  # No limit
+    min_child_samples: 20
+    subsample: 0.8
+    subsample_freq: 1
+    colsample_bytree: 0.8
+    objective: "regression"
+    metric: "mape"
+    verbosity: -1
+    random_state: 42
+    n_jobs: -1
+  
+  # Feature selection
+  feature_selection:
+    method: "importance"  # Use SHAP later
+    top_k: 50  # Keep top 50 features
+
+# Evaluation
+evaluation:
+  metrics:
+    - medae  # Median Absolute Error %
+    - mae   # Mean Absolute Error %
+    - rmse
+    - r2
+  
+  # Matching predictions to actuals
+  matching:
+    fuzzy_threshold: 85  # Levenshtein score
+    time_window_days: 90  # Match if closed within 90d of prediction
+    
+  # Leaderboard
+  leaderboard:
+    publish_monthly: true
+    stratify_by:
+      - zip_code
+      - price_tier  # <300k, 300-500k, 500k-1M, >1M
+      - property_type
+
+# Storage
+storage:
+  # Local file paths
+  local:
+    raw_data: "data/raw"
+    processed_data: "data/processed"
+    predictions: "data/predictions"
+    models: "data/models"
+    logs: "logs"
+  
+  # Database (for production)
+  database:
+    type: "postgresql"
+    host: "${DB_HOST}"
+    port: 5432
+    name: "realtyvest_avm"
+    user: "${DB_USER}"
+    password: "${DB_PASSWORD}"
+  
+  # Cache settings
+  cache:
+    enabled: true
+    ttl_days: 7  # Re-scrape after 7 days
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/avm.log"
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
