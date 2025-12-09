@@ -11,9 +11,9 @@ Build the most transparent, accurate property valuation system for DFW residenti
 ## 🏗️ Project Status
 
 **Phase 1: Foundation** (Current)
- ✅ Project structure and configuration
- ✅ Redfin web scraper
- ✅ Feature engineering pipeline
+- ✅ Project structure and configuration
+- ✅ Redfin web scraper
+- ✅ Feature engineering pipeline
 - [ ] Walk-forward validation framework
 - [ ] Initial LightGBM model
 - [ ] MedAE calculation and leaderboard
