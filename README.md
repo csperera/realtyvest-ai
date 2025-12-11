@@ -1,4 +1,4 @@
-# DFW RealtyVest AVM
+# DFW RealtyVest AVM (Beta)
 
 **Hyper-accurate Automated Valuation Model for Dallas-Fort Worth Real Estate**
 
@@ -171,7 +171,7 @@ This is currently a solo project, but contributions welcome once we hit Phase 2.
 
 ## 📧 Contact
 
-Questions? Open an issue or reach out at [your-email]
+Questions? Open an issue and we will respond!
 
 ---
 
