@@ -4,7 +4,7 @@
 
 ## 🎯 Mission
 
-Build the most transparent, accurate property valuation system for DFW residential real estate (1-4 units). Every month, we publish valuations for *every* active/pending listing in the metro, then prove our accuracy by calculating MedAE on all closed sales 30-90 days later.
+Build the most transparent, accurate property valuation system for DFW residential real estate (1-4 units). Every month, we publish valuations for *every* active/pending listing in the metro, then prove our accuracy by calculating MedAE on all closed sales 30-90 days later.  Ultimately accurate valuation will be the basis for our AI-powered realty intelligence system. 
 
 **No cherry-picking. No excuses. Full transparency forever.**
 
