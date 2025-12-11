@@ -1,35 +1,73 @@
-# DFW RealtyVest AVM (Beta)
+# RealtyVest AI: Investment Intelligence Platform
 
-**Hyper-accurate Automated Valuation Model for Dallas-Fort Worth Real Estate**
+**AI-Powered Property Investment Intelligence for Dallas-Fort Worth Multifamily Real Estate**
 
-## 🎯 Mission
+## 🎯 Vision
 
-Build the most transparent, accurate property valuation system for DFW residential real estate (1-4 units). Every month, we publish valuations for *every* active/pending listing in the metro, then prove our accuracy by calculating MedAE on all closed sales 30-90 days later.  Ultimately accurate valuation will be the basis for our AI-powered realty intelligence system. 
+Build an intelligent property investment platform that combines accurate automated valuation with real-time investment analysis. RealtyVest AI goes beyond simple property valuations - it's a comprehensive system that identifies, analyzes, and ranks investment opportunities using sophisticated financial metrics and market intelligence.
 
-**No cherry-picking. No excuses. Full transparency forever.**
+### Two Core Systems:
+
+1. **Automated Valuation Model (AVM)**: Hyper-accurate property valuations using walk-forward validation and ensemble ML models
+2. **Investment Intelligence Engine**: Real-time ROE analysis, cash flow projections, and opportunity ranking for active market listings
 
 ## 🏗️ Project Status
 
-**Phase 1: Foundation** (Current)
+### Current Implementation (Phase 1)
+
+**AVM Foundation:**
 - ✅ Project structure and configuration
-- ✅ Redfin web scraper
+- ✅ Redfin web scraper for DFW market data
 - ✅ Feature engineering pipeline
 - [ ] Walk-forward validation framework
 - [ ] Initial LightGBM model
 - [ ] MedAE calculation and leaderboard
 
-**Phase 2: Enhancement** (Future)
+**Investment Intelligence (Beta):**
+- ✅ Target market identification (30 high-opportunity ZIP codes in DFW)
+- ✅ Multifamily property filtering (3+ units)
+- ✅ Return on Equity (ROE) calculation engine
+- ✅ Interactive mapping with investment metrics
+- ✅ Property ranking by investment potential
+
+*Note: Current ROE calculations use scraped listing data and estimated rental income. Production version will integrate verified unit counts, actual rent rolls, and comprehensive property financials.*
+
+### Future Enhancements (Phase 2+)
+
+**AVM Improvements:**
 - [ ] Ensemble models (LightGBM + XGBoost + Linear)
 - [ ] Advanced features (schools, crime, walkability)
 - [ ] Hyperparameter optimization (Optuna)
 - [ ] Database storage (PostgreSQL)
 - [ ] Production pipeline (Airflow)
 
-**Phase 3: Production** (Future)
+**Investment Intelligence Expansion:**
+- [ ] Integration with property management APIs for verified rent rolls
+- [ ] Cash-on-cash return projections
+- [ ] Market trend analysis and appreciation forecasts
+- [ ] Comparative market analysis (CMA) automation
+- [ ] Deal structuring optimization (BRRRR strategy modeling)
+
+**Production Deployment:**
 - [ ] REST API (FastAPI)
-- [ ] Streamlit dashboard
-- [ ] Automated monthly runs
-- [ ] Public leaderboard website
+- [ ] Interactive dashboard (Streamlit)
+- [ ] Automated daily market scans
+- [ ] Alert system for new opportunities
+- [ ] Public accuracy leaderboard
+
+## 💡 What Makes RealtyVest AI Different
+
+### 1. Investment-First Approach
+Most AVMs stop at price prediction. We calculate what matters to investors: **ROE, cash flow, and opportunity cost.**
+
+### 2. Transparent Accuracy
+We publish MedAE scores for every prediction batch and prove our accuracy monthly using walk-forward validation. No cherry-picking.
+
+### 3. Market Intelligence
+By focusing on specific high-opportunity markets (initially 30 DFW ZIP codes), we can build hyper-local intelligence that generic nationwide AVMs miss.
+
+### 4. Actionable Insights
+Every property gets ranked by investment potential, not just valued. See opportunities the market is underpricing in real-time.
 
 ## 📊 Our Accuracy Target
 
@@ -42,21 +80,34 @@ MedAE = median(|predicted_price - actual_sale_price| / actual_sale_price * 100)
 
 ## 🛠️ Tech Stack
 
-- **ML**: LightGBM, XGBoost, scikit-learn
-- **Data**: Pandas, NumPy
-- **Scraping**: BeautifulSoup, Requests, Selenium (if needed)
-- **Storage**: PostgreSQL (future), local CSV (current)
-- **API**: FastAPI, Uvicorn (future)
-- **UI**: Streamlit, Folium, Plotly (future)
-- **Config**: YAML, python-dotenv
+**Machine Learning:**
+- LightGBM, XGBoost, scikit-learn
+- Walk-forward validation framework
+- Feature engineering pipelines
+
+**Investment Analytics:**
+- Custom ROE calculation engine
+- Cash flow modeling
+- Market opportunity scoring
+
+**Data & Infrastructure:**
+- Pandas, NumPy for data processing
+- BeautifulSoup, Requests for web scraping
+- PostgreSQL (future), local CSV (current)
+- YAML configuration management
+
+**Visualization & Deployment:**
+- Folium for interactive maps
+- Plotly for analytics dashboards
+- FastAPI for REST endpoints (future)
+- Streamlit for UI (future)
 
 ## 🚀 Quick Start
 
 ### 1. Clone & Setup
-
 ```bash
 git clone <your-repo-url>
-cd dfw-realtyvest-avm
+cd realtyvest-ai
 
 # Create virtual environment
 python3 -m venv venv
@@ -67,7 +118,6 @@ pip install -e .
 ```
 
 ### 2. Configure Environment
-
 ```bash
 cp .env.example .env
 # Edit .env with your API keys
@@ -77,17 +127,17 @@ Required API keys:
 - **FRED API** (free): Get at https://fred.stlouisfed.org/docs/api/api_key.html
 
 ### 3. Project Structure
-
 ```
-dfw-realtyvest-avm/
+realtyvest-ai/
 ├── config/              # Configuration files
 │   ├── config.yaml      # Main settings
-│   └── dfw_zips.yaml    # ZIP code list
+│   └── dfw_zips.yaml    # Target ZIP codes
 ├── src/                 # Source code
-│   ├── data/            # Data acquisition
+│   ├── data/            # Data acquisition & scraping
 │   ├── features/        # Feature engineering
 │   ├── models/          # ML models
-│   ├── evaluation/      # Metrics & matching
+│   ├── investment/      # ROE & investment logic
+│   ├── evaluation/      # Metrics & validation
 │   └── utils/           # Helper functions
 ├── notebooks/           # Jupyter exploration
 ├── tests/               # Unit tests
@@ -137,29 +187,57 @@ This is the core of our credibility:
 
 ## 🗺️ Coverage
 
-**Full DFW Metro** (~200 ZIP codes):
+**Current Focus**: 30 high-opportunity ZIP codes in DFW Metro
+- Targeted multifamily markets (3+ units)
+- Mix of Dallas, Fort Worth, and suburban submarkets
+- Selected for investment potential and data availability
+
+**Future Expansion**: Full DFW Metro (~200 ZIP codes)
 - Dallas County
 - Tarrant County (Fort Worth)
 - Collin County
 - Denton County
 
-**Property Types**: Residential 1-4 units (single-family, townhomes, small multifamily)
+**Property Types**: Residential multifamily (3+ units) expanding to 1-4 units
+
+## 💰 Investment Metrics
+
+### Return on Equity (ROE) Calculation
+
+Our investment intelligence engine calculates ROE for each property using:
+```
+ROE = (Annual Net Operating Income / Total Equity Required) × 100
+```
+
+Where:
+- **NOI** = (Monthly Rent × Units × 12) - Operating Expenses
+- **Total Equity** = Down Payment + Closing Costs + Rehab Budget
+
+Current implementation uses market-standard assumptions:
+- 25% down payment
+- 3% closing costs
+- Conservative operating expense ratios
+- Market rent estimates from listing data
+
+*Production version will integrate verified financials and actual rent rolls for institutional-grade accuracy.*
 
 ## 📝 Configuration
 
 All settings are in `config/config.yaml`:
-- Geographic bounds and ZIP codes
-- Property filters (price range, sqft, etc.)
+- Geographic bounds and target ZIP codes
+- Property filters (price range, units, sqft)
+- Investment assumptions (down payment %, expense ratios)
 - Model hyperparameters
 - Feature definitions
 - Evaluation metrics
 
-## 🔐 Data Privacy
+## 🔐 Data Privacy & Ethics
 
 - We only use publicly available data (MLS listings, county records, FRED macros)
 - No scraping of private info or user data
 - Respectful rate limiting (2 sec delays)
 - User-Agent identification in headers
+- Full compliance with robots.txt and ToS
 
 ## 📜 License
 
@@ -167,12 +245,12 @@ MIT License - see LICENSE file
 
 ## 🤝 Contributing
 
-This is currently a solo project, but contributions welcome once we hit Phase 2.
+This is currently a solo project showcasing AI/ML capabilities for property investment analysis. Interested in PropTech applications of machine learning? Open an issue to discuss!
 
 ## 📧 Contact
 
-Questions? Open an issue and we will respond!
+Questions about the project or PropTech collaboration? Open an issue!
 
 ---
 
-**Built with 🏡 for real estate investors who demand accuracy**
+**Built with 🏡 for real estate investors who demand accuracy and actionable intelligence**
