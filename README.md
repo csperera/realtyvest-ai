@@ -2,6 +2,8 @@
 
 **AI-Powered Property Investment Intelligence for Dallas-Fort Worth Multifamily Real Estate**
 
+[![Click To Watch Demo Video](https://img.shields.io/badge/▶️-Click%20To%20Watch%20Demo%20Video-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=yi6GAJL6Ppw)
+
 ## 🎯 Vision
 
 Build an intelligent property investment platform that combines accurate automated valuation with real-time investment analysis. RealtyVest AI goes beyond simple property valuations - it's a comprehensive system that identifies, analyzes, and ranks investment opportunities using sophisticated financial metrics and market intelligence.
