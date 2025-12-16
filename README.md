@@ -1,4 +1,4 @@
-# RealtyVest AI: Investment Intelligence Platform
+# Realtyvest AI: Investment Intelligence Platform
 
 **AI-Powered Property Investment Intelligence for Dallas-Fort Worth Multifamily Real Estate**
 
