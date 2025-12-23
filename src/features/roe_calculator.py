@@ -296,6 +296,7 @@ class ROECalculator:
             f"{strong} strong (15-20%), "
             f"{marginal} marginal (10-15%)"
         )
+    
         
         return result_df
 

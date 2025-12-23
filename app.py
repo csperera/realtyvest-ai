@@ -247,7 +247,7 @@ df = load_data()
 st.markdown("""
 <div style='background: #2d3748; padding: 2rem 0; margin-bottom: 2rem;'>
     <h1 style='text-align: center; font-size: 4rem; font-weight: 800; margin-bottom: 0.5rem;'>
-        <span style='color: #a855f7;'>RealtyVest.ai</span>
+        <span style='color: #a855f7;'>Realtyvest.Ai</span>
     </h1>
     <p style='text-align: center; color: #a0aec0; font-size: 1.1rem; margin: 0;'>DFW Multifamily Investment Intelligence</p>
 </div>
@@ -455,6 +455,9 @@ for idx, row in map_df.iterrows():
             Down: ${row['down_payment']:,.0f} | NOI: ${row['noi']:,.0f}<br>
             Principal Year 1: ${row['principal_paydown']:,.0f}
         </p>
+        <a href="{row['url']}" target="_blank" style="display: block; margin-top: 10px; padding: 8px; background: #a855f7; color: white; text-align: center; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 12px;">
+            View on Redfin →
+        </a>
     </div>
     """
     
@@ -508,7 +511,7 @@ st.markdown("---")
 st.markdown("""
 <div style='text-align: center; color: #718096; padding: 20px;'>
     <p style='font-size: 0.9rem;'>
-        <b style='color: #a855f7;'>RealtyVest.ai</b> | Conservative Underwriting: 0% Appreciation, 35% OpEx, 7% Rate<br>
+        <b style='color: #a855f7;'>Realtyvest.Ai</b> | Conservative Underwriting: 0% Appreciation, 35% OpEx, 7% Rate<br>
         Phase 1: Automated Valuation Model
     </p>
 </div>

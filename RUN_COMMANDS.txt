@@ -1,0 +1,37 @@
+📋 RealtyVest.ai Process (In Order)
+Step 1: Scrape Properties 🕷️
+
+python scrape_demo_zips.py
+
+What it does: Scrapes 30 key DFW ZIP codes from Redfin
+Pulls all multifamily properties (3+ units)
+Filters to active listings
+Saves to: data/raw/dfw_multifamily_demo.csv
+Runtime: ~45-60 minutes (rate limited, polite scraping)
+
+
+Step 2: Analyze ROE 🧮
+
+python analyze_roe.py
+
+What it does:
+
+Loads scraped properties
+Calculates ROE for each (0% appreciation, 35% OpEx, 7% rate)
+Identifies unicorns (20%+), strong buys (15%+), marginal (10%+)
+Saves to: data/processed/dfw_multifamily_roe_analysis.csv
+Saves target properties to: data/processed/target_properties_15pct_plus.csv
+Runtime: ~30 seconds
+
+
+Step 3: Launch Dashboard 🗺️
+
+streamlit run app.py
+
+What it does:
+
+Loads the ROE analysis results
+Creates interactive map with color-coded markers
+Provides filters (ROE tier, price, units, ZIPs)
+Opens in browser at http://localhost:8501
+Auto-refreshes when you change filters

@@ -1,8 +1,22 @@
-# Realtyvest AI: Investment Intelligence Platform
+# RealtyVest AI: Investment Intelligence Platform
 
 **AI-Powered Property Investment Intelligence for Dallas-Fort Worth Multifamily Real Estate**
 
-[![Click To Watch Demo Video](https://img.shields.io/badge/▶️-Click%20To%20Watch%20Demo%20Video-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=yi6GAJL6Ppw)
+# ⚠️ IMPORTANT NOTICE
+
+**This repository contains a demonstration implementation for portfolio and evaluation purposes.**
+
+The production system includes:
+- Proprietary valuation algorithms and feature engineering
+- Optimized walk-forward validation methodology
+- Production-grade data processing pipelines
+- Commercial deployment infrastructure
+
+**© 2025 Christian Perera. All Rights Reserved.**
+
+For commercial licensing, collaboration, or technical discussions: christian@wealthmind.ai
+
+---
 
 ## 🎯 Vision
 
