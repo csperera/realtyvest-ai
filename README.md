@@ -257,7 +257,7 @@ All settings are in `config/config.yaml`:
 
 ## 📜 License
 
-MIT License - see LICENSE file
+see LICENSE file
 
 ## 🤝 Contributing
 
