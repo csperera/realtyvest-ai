@@ -22,6 +22,8 @@ For commercial licensing, collaboration, or technical discussions: christianpere
 
 Build an intelligent property investment platform that combines accurate automated valuation with real-time investment analysis. RealtyVest AI goes beyond simple property valuations - it's a comprehensive system that identifies, analyzes, and ranks investment opportunities using sophisticated financial metrics and market intelligence.
 
+[![Click To Watch Demo Video](https://img.shields.io/badge/▶️-Click%20To%20Watch%20Demo%20Video-red?style=for-the-badge&logo=youtube)](https://youtu.be/yi6GAJL6Ppw?si=Yak7LT35Jwh0TZrU)
+
 ### Two Core Systems:
 
 1. **Automated Valuation Model (AVM)**: Hyper-accurate property valuations using walk-forward validation and ensemble ML models
